@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="create_rule" author="alexvas">
+        <sql>
+            CREATE TYPE MODE AS ENUM (
+                'ALLOW',
+                'DENY'
+                );
+
+            CREATE TABLE rule
+            (
+                id   UUID NOT NULL,
+                mode MODE NOT NULL DEFAULT 'DENY'
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
